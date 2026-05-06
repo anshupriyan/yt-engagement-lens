@@ -1,4 +1,4 @@
-﻿'use strict';
+'use strict';
 
 const BADGE_CLASS = 'ytel-overlay';
 const DONE_ATTR = 'data-ytel-done';
@@ -17,7 +17,7 @@ const cache = new Map();
 const pending = new Set();
 
 function fmt(n) {
-  if (n == null || isNaN(n)) return 'ΓÇö';
+  if (n == null || isNaN(n)) return '—';
   if (n >= 1_000_000) return (n / 1_000_000).toFixed(1).replace(/\.0$/, '') + 'M';
   if (n >= 1_000) return (n / 1_000).toFixed(1).replace(/\.0$/, '') + 'K';
   return String(n);
@@ -36,7 +36,7 @@ function getVideoId(el) {
   return null;
 }
 
-// Detect mix/playlist cards ΓÇö skip these
+// Detect mix/playlist cards — skip these
 function isPlaylistOrMix(el) {
   for (const a of el.querySelectorAll('a[href]')) {
     if (/[?&]list=/.test(a.href)) return true;
@@ -46,7 +46,7 @@ function isPlaylistOrMix(el) {
 
 // Find the metadata row to inject stats inline.
 function getMetaLine(container) {
-  // Shorts home feed items ΓÇö find the subtitle/views area below the thumbnail
+  // Shorts home feed items — find the subtitle/views area below the thumbnail
   if (container.matches?.('ytd-reel-item-renderer')) {
     return (
       container.querySelector('#details') ||
@@ -71,15 +71,15 @@ function makeBadge(data) {
 
   const wrap = document.createElement('span');
   wrap.className = BADGE_CLASS;
-  wrap.textContent = ' ΓÇó ';
+  wrap.textContent = ' • ';
 
   const ls = document.createElement('span');
   ls.className = 'ytel-like';
-  ls.textContent = '≡ƒæì ' + fmt(likes);
+  ls.textContent = '👍 ' + fmt(likes);
 
   const ds = document.createElement('span');
   ds.className = 'ytel-dislike';
-  ds.textContent = ' ≡ƒæÄ ' + fmt(dislikes);
+  ds.textContent = ' 👎 ' + fmt(dislikes);
 
   wrap.appendChild(ls);
   wrap.appendChild(ds);
@@ -132,7 +132,7 @@ function processContainer(container) {
   });
 }
 
-// ΓöÇΓöÇΓöÇ WATCH PAGE: Dislike count on the main video ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
+// ─── WATCH PAGE: Dislike count on the main video ─────────────────────────────
 
 let lastWatchVideoId = null;
 
@@ -203,7 +203,7 @@ function processWatchPage() {
   });
 }
 
-// ΓöÇΓöÇΓöÇ SCANNING ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
+// ─── SCANNING ─────────────────────────────────────────────────────────────────
 
 const SHORTS_DISLIKE_CLASS = 'ytel-shorts-dislike';
 let lastShortsVideoId = null;

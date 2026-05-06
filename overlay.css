@@ -1,4 +1,4 @@
-﻿/* YT Engagement Lens ΓÇö Inline metadata stats */
+/* YT Engagement Lens — Inline metadata stats */
 
 /* Badge: own line below the metadata to avoid overflow clipping */
 .ytel-overlay {
@@ -28,7 +28,7 @@ div.ytContentMetadataViewModelMetadataRow,
   color: #f87171;
 }
 
-/* ΓöÇΓöÇΓöÇ Watch page: like/dislike stats in video info area ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ */
+/* ─── Watch page: like/dislike stats in video info area ────────── */
 
 .ytel-watch-dislike {
   display: block !important;
@@ -41,7 +41,7 @@ div.ytContentMetadataViewModelMetadataRow,
   white-space: nowrap;
 }
 
-/* ΓöÇΓöÇΓöÇ Shorts page: dislike count on the action button ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ */
+/* ─── Shorts page: dislike count on the action button ────────── */
 
 .ytel-shorts-dislike {
   display: inline !important;
