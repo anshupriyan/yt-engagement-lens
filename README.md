@@ -25,8 +25,16 @@ Since this extension is not yet on the Chrome Web Store, you can load it locally
 
 ## ⚙️ How It Works
 
-This extension interacts with YouTube's page structure via content scripts (`content.js`) and retrieves historical dislike and like data through background requests to the [Return YouTube Dislike API](https://returnyoutubedislikeapi.com/). 
+This extension interacts with YouTube's page structure via content scripts (`content.js`) and retrieves historical dislike and like data through background requests.
+
+## 📊 Attribution & Data Source
+
+This project uses the public API provided by [Return YouTube Dislike](https://returnyoutubedislike.com/). We would like to attribute and thank the Return YouTube Dislike project and its contributors for their excellent work and for making this data available. 
+
+*   **Website:** [returnyoutubedislike.com](https://returnyoutubedislike.com/)
+*   **Source Code:** [Anarios/return-youtube-dislike on GitHub](https://github.com/Anarios/return-youtube-dislike)
 
 ## 🛡️ License
 
 Distributed under the MIT License.
+
