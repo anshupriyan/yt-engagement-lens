@@ -25,6 +25,9 @@ const RYD_API = 'https://returnyoutubedislikeapi.com/votes?videoId=';
  * @returns {Promise<object|null>}
  */
 async function getVotes(videoId) {
+  if (!/^[a-zA-Z0-9_-]{11}$/.test(videoId)) {
+    return null;
+  }
   if (cache.has(videoId)) return cache.get(videoId);
   if (inflight.has(videoId)) return inflight.get(videoId);
 
@@ -68,10 +71,16 @@ async function getVotes(videoId) {
 chrome.runtime.onMessage.addListener((message, _sender, sendResponse) => {
   if (message?.type !== 'GET_VOTES' || !message.videoId) return false;
 
-  console.log('[YTEL-BG] Received request for', message.videoId);
+  const videoId = message.videoId;
+  if (!/^[a-zA-Z0-9_-]{11}$/.test(videoId)) {
+    sendResponse(null);
+    return false;
+  }
 
-  getVotes(message.videoId).then((data) => {
-    console.log('[YTEL-BG] Responding for', message.videoId, data ? '✓ data' : '✗ null');
+  console.log('[YTEL-BG] Received request for', videoId);
+
+  getVotes(videoId).then((data) => {
+    console.log('[YTEL-BG] Responding for', videoId, data ? '✓ data' : '✗ null');
     sendResponse(data);
   });
   return true; // Keep channel open for async response
