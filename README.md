@@ -33,8 +33,7 @@ In 2021, YouTube made the controversial decision to hide public dislike counts, 
 *   **Zero Configuration:** Start instantly. The extension works out-of-the-box using the public API, requiring no personal API keys or setups.
 *   **Lightweight & Privacy-First:** Built entirely on vanilla JavaScript and CSS to minimize browser memory footprint, featuring a fully security-hardened Manifest V3 codebase.
 
-<img width="605" height="737" alt="image" src="https://github.com/user-attachments/assets/82c1a735-7cbc-425f-a802-182000b356c8" />
-<img width="306" height="328" alt="image" src="https://github.com/user-attachments/assets/f8ba38c6-35c3-4a28-9305-69f5939a5c6e" />
+<img width="485" height="357" alt="image" src="https://github.com/user-attachments/assets/d06ca981-60c1-4fd8-8aff-593fc1291ece" /><img width="306" height="328" alt="image" src="https://github.com/user-attachments/assets/f8ba38c6-35c3-4a28-9305-69f5939a5c6e" />
 
 
 ---
