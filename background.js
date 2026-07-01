@@ -1,5 +1,5 @@
 /**
- * YT Engagement Lens — Background Service Worker
+ * YT Dislike Preview — Background Service Worker
  *
  * Handles all fetch() calls to the Return YouTube Dislike API.
  * Content scripts cannot make cross-origin requests without hitting CORS;

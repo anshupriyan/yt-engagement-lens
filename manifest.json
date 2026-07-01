@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "YT Engagement Lens",
+  "name": "YT Dislike Preview",
   "version": "1.0.0",
-  "description": "Overlay likes, dislikes, and engagement metrics directly on YouTube thumbnails — no API key required.",
+  "description": "Bring back YouTube dislike counts as a thumbnail preview — likes, dislikes, and engagement ratio, no API key required.",
   "background": {
     "service_worker": "background.js"
   },
@@ -21,7 +21,7 @@
   ],
   "action": {
     "default_popup": "popup.html",
-    "default_title": "YT Engagement Lens",
+    "default_title": "YT Dislike Preview",
     "default_icon": {
       "16": "icons/icon16.png",
       "48": "icons/icon48.png",

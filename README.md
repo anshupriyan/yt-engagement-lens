@@ -1,4 +1,4 @@
-# 📊 YT Engagement Lens
+# 📊 YT Dislike Preview
 
 A lightweight, Manifest V3 Chrome Extension that displays YouTube video engagement metrics (likes, dislikes, and ratios) directly on thumbnails, the main video player, and YouTube Shorts — **no API key required.**
 
