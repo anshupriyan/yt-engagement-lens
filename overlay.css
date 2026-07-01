@@ -14,11 +14,7 @@
   margin-top: 2px;
 }
 
-/* Force parent metadata rows to show overflow */
-div.ytContentMetadataViewModelMetadataRow,
-#metadata-line {
-  overflow: visible !important;
-}
+
 
 .ytel-like {
   color: #4ade80;

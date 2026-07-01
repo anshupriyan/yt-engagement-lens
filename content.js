@@ -89,8 +89,13 @@ function makeBadge(data) {
 function showBadge(container, data) {
   const meta = getMetaLine(container);
   if (!meta) return;
-  meta.querySelectorAll('.' + BADGE_CLASS).forEach(b => b.remove());
-  meta.appendChild(makeBadge(data));
+  container.querySelectorAll('.' + BADGE_CLASS).forEach(b => b.remove());
+  const badge = makeBadge(data);
+  if (meta.parentNode) {
+    meta.insertAdjacentElement('afterend', badge);
+  } else {
+    meta.appendChild(badge);
+  }
 }
 
 function processContainer(container) {
@@ -103,7 +108,7 @@ function processContainer(container) {
   // Already processed same video — restore badge if missing
   if (container.getAttribute(DONE_ATTR) === videoId) {
     const meta = getMetaLine(container);
-    if (meta && !meta.querySelector('.' + BADGE_CLASS)) {
+    if (meta && !container.querySelector('.' + BADGE_CLASS)) {
       const data = cache.get(videoId);
       if (data) showBadge(container, data);
     }
@@ -299,11 +304,15 @@ function processSidebarCard(lockup) {
     // Restore badge if missing
     const meta = lockup.querySelector('div.ytContentMetadataViewModelMetadataRow') ||
                  lockup.querySelector('yt-lockup-metadata-view-model');
-    if (meta && !meta.querySelector('.' + BADGE_CLASS)) {
+    if (meta && !lockup.querySelector('.' + BADGE_CLASS)) {
       const data = cache.get(videoId);
       if (data) {
-        meta.querySelectorAll('.' + BADGE_CLASS).forEach(b => b.remove());
-        meta.appendChild(makeBadge(data));
+        lockup.querySelectorAll('.' + BADGE_CLASS).forEach(b => b.remove());
+        if (meta.parentNode) {
+          meta.insertAdjacentElement('afterend', makeBadge(data));
+        } else {
+          meta.appendChild(makeBadge(data));
+        }
       }
     }
     return;
@@ -318,8 +327,12 @@ function processSidebarCard(lockup) {
   if (cache.has(videoId)) {
     const data = cache.get(videoId);
     if (data) {
-      mount.querySelectorAll('.' + BADGE_CLASS).forEach(b => b.remove());
-      mount.appendChild(makeBadge(data));
+      lockup.querySelectorAll('.' + BADGE_CLASS).forEach(b => b.remove());
+      if (mount.parentNode) {
+        mount.insertAdjacentElement('afterend', makeBadge(data));
+      } else {
+        mount.appendChild(makeBadge(data));
+      }
     }
     return;
   }
@@ -335,8 +348,12 @@ function processSidebarCard(lockup) {
     }
     cache.set(videoId, resp ?? null);
     if (resp) {
-      mount.querySelectorAll('.' + BADGE_CLASS).forEach(b => b.remove());
-      mount.appendChild(makeBadge(resp));
+      lockup.querySelectorAll('.' + BADGE_CLASS).forEach(b => b.remove());
+      if (mount.parentNode) {
+        mount.insertAdjacentElement('afterend', makeBadge(resp));
+      } else {
+        mount.appendChild(makeBadge(resp));
+      }
     }
   });
 }
