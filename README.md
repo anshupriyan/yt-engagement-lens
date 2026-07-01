@@ -13,7 +13,8 @@
 ---
 
 <div align="center">
-  <img src="assets/popup_screenshot.png" alt="YT Dislike Preview Extension Popup" width="280" />
+  <img width="358" height="362" alt="image" src="https://github.com/user-attachments/assets/d9f7b77d-7518-4a00-9c79-5b0dfead7b46" />
+
 </div>
 
 ## 💡 Why This Exists
